@@ -1,0 +1,6 @@
+# Setting the theme to a custom theme in the themes folder
+theme = "catppuccin"
+
+[editor]
+line-number = "relative"
+mouse = true
