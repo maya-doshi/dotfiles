@@ -4,6 +4,7 @@ local custom = wezterm.color.get_builtin_schemes()['Catppuccin Mocha']
 custom.background = '#000000'
 
 return {
+  enable_wayland = true,
   font = wezterm.font_with_fallback({
     {
       family='JetBrainsMono Nerd Font',
