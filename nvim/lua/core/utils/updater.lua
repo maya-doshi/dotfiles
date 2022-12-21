@@ -79,13 +79,13 @@ function astronvim.updater.reload(quiet)
   if vim.fn.exists ":LspStop" ~= 0 then vim.cmd "LspStop" end
   local reload_module = require("plenary.reload").reload_module
   -- unload AstroNvim configuration files
-  reload_module("user", false)
-  reload_module("configs", false)
-  reload_module("default_theme", false)
-  reload_module("core", false)
+  reload_module "user"
+  reload_module "configs"
+  reload_module "default_theme"
+  reload_module "core"
   -- manual unload some plugins that need it if they exist
-  reload_module("cmp", false)
-  reload_module("which-key", false)
+  reload_module "cmp"
+  reload_module "which-key"
   -- source the AstroNvim configuration
   local reloaded, _ = pcall(dofile, vim.fn.expand "$MYVIMRC")
   -- if successful reload and not quiet, display a notification
@@ -255,16 +255,18 @@ function astronvim.updater.update()
     -- if the user wants to reload and sync packer
     if options.auto_reload then
       -- perform a reload
+      vim.opt.modifiable = true
       astronvim.updater.reload(true) -- run quiet to not show notification on reload
       -- sync packer if it is available
-      local packer_avail, packer = pcall(require, "packer")
+      local packer_avail, _ = pcall(require, "packer")
       if packer_avail then
         -- on a successful packer sync send user event
         vim.api.nvim_create_autocmd(
           "User",
-          { pattern = "PackerComplete", command = "doautocmd User AstroUpdateComplete" }
+          { once = true, pattern = "PackerComplete", command = "doautocmd User AstroUpdateComplete" }
         )
-        packer.sync()
+        require "core.plugins"
+        vim.cmd "PackerSync"
         -- if packer isn't available send successful update event
       else
         vim.cmd [[doautocmd User AstroUpdateComplete]]

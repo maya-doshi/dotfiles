@@ -9,7 +9,7 @@ local config = {
   -- Configure AstroNvim updates
   updater = {
     remote = "origin", -- remote to use
-    channel = "nightly", -- "stable" or "nightly"
+    channel = "stable", -- "stable" or "nightly"
     version = "latest", -- "latest", tag name, or regex search like "v1.*" to only do updates before v2 (STABLE ONLY)
     branch = "main", -- branch name (NIGHTLY ONLY)
     commit = nil, -- commit hash (NIGHTLY ONLY)
@@ -91,10 +91,10 @@ local config = {
   -- Default theme configuration
   default_theme = {
     -- Modify the color palette for the default theme
-    colors = {
-      fg = "#abb2bf",
-      bg = "#000000",
-    },
+    -- colors = {
+    --   fg = "#abb2bf",
+    --   bg = "#000000",
+    -- },
     highlights = function(hl) -- or a function that returns a new table of colors to set
       local C = require "default_theme.colors"
 
@@ -241,6 +241,7 @@ local config = {
             color_overrides = {
               mocha = {
                 base = "#000000",
+                border = "#967bb6",
               }
             }
           }

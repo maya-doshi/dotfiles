@@ -1,6 +1,11 @@
 return {
   ActiveLSP = "LSP:",
   BufferClose = "x",
+  DapBreakpoint = "B",
+  DapBreakpointCondition = "C",
+  DapBreakpointRejected = "R",
+  DapLogPoint = "L",
+  DapStopped = ">",
   DefaultFile = "[F]",
   DiagnosticError = "X",
   DiagnosticHint = "?",
@@ -24,5 +29,7 @@ return {
   MacroRecording = "Recording:",
   NeovimClose = "X",
   Paste = "[PASTE]",
+  Search = "?",
+  Selected = "*",
   Spellcheck = "[SPELL]",
 }
