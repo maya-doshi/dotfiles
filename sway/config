@@ -1,5 +1,4 @@
 exec export XDG_DATA_DIRS=/home/maya/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share/:/usr/share/:/var/lib/flatpak/exports/share/applications/
-exec spotifyd --no-daemon
 
 ### Variables
 #
@@ -11,8 +10,8 @@ set $down j
 set $up k
 set $right l
 # Your preferred terminal emulator
-set $menu fuzzel -b 000000ff -t ffffffff
-set $term foot
+set $menu fuzzel -b 1e1e2eff -t cdd6f4ff
+set $term alacritty
 set $screenshot_full grim
 
 # Your preferred application launcher
@@ -20,12 +19,6 @@ set $screenshot_full grim
 # on the original workspace that the command was run on.
 # set $menu dmenu_path | dmenu | xargs swaymsg exec --
 
-### Output configuration
-#
-# Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output eDP-1 bg #c6aae8 solid_color
-output eDP-1 scale 1.5 
-#
 # Example configuration:
 #
 #   output HDMI-A-1 resolution 1920x1080 position 1920,0
@@ -217,4 +210,5 @@ bar {
 default_border none
 gaps outer 2
 gaps inner 4
+include ./outputs
 include /etc/sway/config.d/*
