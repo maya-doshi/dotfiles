@@ -54,7 +54,7 @@ themes {
     catppuccin-oled {
         fg 205 214 244
         bg 0 0 0
-        black 24 24 37
+        black 0 0 0
         red 243 139 168
         green 166 227 161
         yellow 249 226 175
