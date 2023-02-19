@@ -1,4 +1,10 @@
-exec export XDG_DATA_DIRS=/home/maya/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share/:/usr/share/:/var/lib/flatpak/exports/share/applications/
+exec export XDG_CURRENT_DESKTOP=sway
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+
+exec export XDG_DATA_DIRS=/home/maya/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share/:/usr/share/:/var/lib/flatpak/exports/share/applications/:/home/maya/.cargo/bin/
+
+
+exec mako
 
 ### Variables
 #
@@ -10,20 +16,26 @@ set $down j
 set $up k
 set $right l
 # Your preferred terminal emulator
-set $menu fuzzel -b 1e1e2eff -t cdd6f4ff
-set $term alacritty
-set $screenshot_full grim
+set $term foot
+set $screenshot_select grimshot --notify copy area
 
-# Your preferred application launcher
-# Note: pass the final command to swaymsg so that the resulting window can be opened
-# on the original workspace that the command was run on.
-# set $menu dmenu_path | dmenu | xargs swaymsg exec --
+# Brightness Control
+bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
+bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
 
-# Example configuration:
-#
-#   output HDMI-A-1 resolution 1920x1080 position 1920,0
-#
-# You can get the names of your outputs by running: swaymsg -t get_outputs
+# bindsym --locked XF86AudioMute exec pactl set-sink-mute alsa_output.pci-0000_04_00.6.analog-stereo toggle
+# bindsym --locked XF86AudioLowerVolume exec pactl set-sink-volume alsa_output.pci-0000_04_00.6.analog-stereo -5%
+# bindsym --locked XF86AudioRaiseVolume exec pactl set-sink-volume alsa_output.pci-0000_04_00.6.analog-stereo +5%
+
+bindsym --locked XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym --locked XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym --locked XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+
+set $laptop SDC 0x4154 Unknown
+bindswitch --reload --locked lid:on exec swaylock -c "#D2ABDB" | systemctl suspend
+# bindswitch --reload --locked lid:off output $laptop enable
+
+set $menu fuzzel -b 000000ff -t ffffffff 
 
 ### Idle configuration
 #
@@ -61,8 +73,8 @@ input type:touchpad {
     # Start your launcher
     bindsym $mod+d exec $menu
     
-    # Full Screenshot
-    bindsym $mod+p exec $screenshot_full
+    # Select Screenshot
+    bindsym $mod+p exec $screenshot_select
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -193,22 +205,35 @@ bindsym $mod+r mode "resize"
 # Status Bar:
 #
 # Read `man 5 sway-bar` for more information about this section.
+# bar {
+#     position top
+#     # When the status_command prints a new line to stdout, swaybar updates.
+#     # The default just shows the current date and time.
+#     status_command while ~/.config/sway/status.sh; do sleep 1; done
+#     colors {
+#         focused_workspace   #D2ABDB #D2ABDB #000000
+#         statusline #ffffff
+#         background #232323 
+#         # background #000000 
+#         inactive_workspace #323232 #323232 #ffffff
+#     }
+# }
+
 bar {
-    position top
-
-    # When the status_command prints a new line to stdout, swaybar updates.
-    # The default just shows the current date and time.
-    status_command while date +'%Y-%m-%d %I:%M:%S %p'; do sleep 1; done
-
-    colors {
-        statusline #ffffff
-        background #232323 
-        inactive_workspace #32323200 #32323200 #5c5c5c
-    }
+    swaybar_command waybar
 }
+# class                         border          background      text            indicator       child_border
+client.focused                  #D2ABDB         #000000         #D2ABDB         #D2ABDB         #D2ABDB
+client.focused_inactive         #333333         #000000         #D2ABDB         #404040         #000000
+client.unfocused                #333333         #000000         #888888         #404040         #000000
+client.urgent                   #2f343a         #900000         #ffffff         #404040         #D2ABDB
+client.placeholder              #000000         #000000         #ffffff         #404040         #D2ABDB
 
-default_border none
-gaps outer 2
-gaps inner 4
+output * bg "#D2ABDB" solid_color
+# output * bg "#000000" solid_color
+default_border pixel 3
+# default_border normal
+# gaps outer 4 
+# gaps inner 4 
 include ./outputs
 include /etc/sway/config.d/*

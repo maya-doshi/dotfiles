@@ -37,7 +37,7 @@ label = "honey"
 "diff.minus" = "#f22c86"
 "diff.delta" = "#6f44f0"
 
-"ui.background" = { bg = "transparent" }
+"ui.background" = { bg = "#000000" }
 "ui.linenr" = { fg = "comet" }
 "ui.linenr.selected" = { fg = "lilac" }
 "ui.statusline" = { fg = "black", bg = "blue" }

@@ -1,6 +1,11 @@
 # Setting the theme to a custom theme in the themes folder
-theme = "catppuccin"
+theme = "mellow"
 
 [editor]
 line-number = "relative"
 mouse = true
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
