@@ -1,3 +1,3 @@
-# My dotfiles
+# dotfiles
 
-#### All the customization is very basic. Not even close to finished, haven't had time. 
+#### Basic customization, mostly complete for now.
