@@ -3,10 +3,11 @@
   "position": "top",
   "height": 24,
   "margin": "0, 0, 0, 0",
+  "ipc": true,
 
   "modules-left": ["sway/workspaces", "sway/scratchpad", "sway/mode"],
   "modules-center": ["sway/window"],
-  "modules-right": ["idle_inhibitor", "backlight", "pulseaudio", "battery", "clock", "tray"],
+  "modules-right": ["tray", "backlight", "pulseaudio", "battery", "clock"],
 
   "sway/scratchpad": {
     "format": "{icon} {count}",
@@ -33,14 +34,14 @@
   "pulseaudio": {
     "format": "{volume}% {icon} {format_source}",
     "format-bluetooth": "{volume}% {icon} {format_source}",
-    "format-bluetooth-muted": " {icon} {format_source}",
+    "format-bluetooth-muted": " {icon} {format_source}",
     "format-muted": " {format_source}",
     "format-source": "{volume}% ",
     "format-source-muted": "",
     "format-icons": {
-      "headphone": "",
-      "hands-free": "",
-      "headset": "",
+      "headphone": "󰋋",
+      "hands-free": "󰥰",
+      "headset": "󰋎",
       "phone": "",
       "portable": "",
       "car": "",
@@ -55,7 +56,7 @@
       "critical": 15
     },
     "format": "{capacity}% {icon}",
-    "format-charging": "{capacity}% ",
+    "format-charging": "{capacity}% 󱐋",
     "format-plugged": "{capacity}% ",
     "format-alt": "{time} {icon}",
     // "format-good": "", // An empty format will hide the module
