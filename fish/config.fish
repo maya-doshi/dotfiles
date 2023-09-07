@@ -9,9 +9,11 @@ set -Ux GDK_BACKEND wayland
 set -Ux AMD_VULKAN_ICD RADV
 set -Ux QT_QPA_PLATFORM wayland-egl
 set -Ux EDITOR nvim
+set -Ux RUSTC_WRAPPER /home/maya/.cargo/bin/sccache
+fish_add_path -m ~/.cargo/bin
 
 # Set up Zoxide [cd alternative]
-# zoxide init fish | source
+zoxide init fish | source
 
 ## ALIASES
 
@@ -23,21 +25,23 @@ alias tree="lsd --tree"
 # Helix Text editor (arch package doesnt name binary hx :[)
 alias hx="helix"
 
+# Neovim
+alias vim="nvim"
+
 # Compat ssh: Fixes weird ssh behaviour on foot
 alias cssh="TERM=xterm-256color ssh"
 
 # Git Commands
 alias gap="git add -p"
-alias gaa="git add ."
 alias gic="git commit"
 alias gip="git push"
 
 # PDF Reader forks off automatically and shorter command
 alias za="zathura --fork"
 
-# Code auto launches in Wayland, for some reason config files dont work
-alias code="code --enable-features=UseOzonePlatform --ozone-platform=wayland"
+# cat with syntax
+alias cat="bat"
 
-# Directory Shortcuts
-alias cmu="cd ~/Documents/CMU/Spring23/"
-alias projects="cd ~/Documents/Projects/"
+# emacs terminal
+alias emacs="emacs -nw"
+alias doom="~/.config/emacs/bin/doom"
