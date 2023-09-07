@@ -243,11 +243,12 @@ client.unfocused                #333333         #000000         #888888         
 client.urgent                   #2f343a         #900000         #ffffff         #404040         #D2ABDB
 client.placeholder              #000000         #000000         #ffffff         #404040         #D2ABDB
 
-output * bg "#D2ABDB" solid_color
-# output * bg "#000000" solid_color
+smart_borders on
+# output * bg "#D2ABDB" solid_color
+output * bg "#1e1e2e" solid_color
 default_border pixel 3
-# default_border normal
 # gaps outer 4 
 # gaps inner 4 
 include ./outputs
+include ./inputs
 include /etc/sway/config.d/*
