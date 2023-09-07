@@ -2,6 +2,7 @@ exec export XDG_CURRENT_DESKTOP=sway
 exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
 
 exec export XDG_DATA_DIRS=/home/maya/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share/:/usr/share/:/var/lib/flatpak/exports/share/applications/:/home/maya/.cargo/bin/
+exec /usr/libexec/polkit-gnome-authentication-agent-1
 
 
 exec mako
