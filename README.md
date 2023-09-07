@@ -9,3 +9,4 @@
 - [ ] Fix neovim config (config nvchad, switch back to astronvim, or new config)
 - [x] Mako gruvbox
 - [ ] Secret/Pass management, for backing up spotifyd config
+- [ ] Sway low battery alert and other notification settings
