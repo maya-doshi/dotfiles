@@ -1,0 +1,26 @@
+theme = "default"
+client_id = "7deca33420864f5b9d9e6d915b538ced"
+copy_command = { command = "xclip", args = ["-sel", "c"] } # linux
+# copy_command = { command = "clip", args = [] } # windows
+app_refresh_duration_in_ms = 32
+playback_refresh_duration_in_ms = 0
+cover_image_refresh_duration_in_ms = 2000
+page_size_in_rows = 20
+track_table_item_max_len = 32
+enable_media_control = true
+play_icon = "▶"
+pause_icon = "▌▌"
+liked_icon = "♥"
+playback_position = "Top"
+cover_img_scale = 2.7
+default_device = "logan"
+border_type = "Rounded"
+progress_bar_type = "Line"
+
+[device]
+name = "logan-spot"
+device_type = "computer"
+volume = 100
+bitrate = 320
+audio_cache = true
+cache_size_limit = "256M"
