@@ -1,35 +1,17 @@
 output "eDP-1" {
-    mode  2880x1800@60.001Hz
-    pos 128 1440
+    mode  2880x1800@60.0Hz
+    pos 320 1440
     transform normal
-    scale 1.25
+    scale 1.50
     scale_filter linear
-    adaptive_sync off
-    dpms on
-}
-output "DP-4" {
-    mode  2560x1440@119.998Hz
-    pos 0 0
-    transform normal
-    scale 1.0
-    scale_filter nearest
-    adaptive_sync off
-    dpms on
-}
-output "DP-3" {
-    mode  2560x1440@119.998Hz
-    pos 0 0
-    transform normal
-    scale 1.0
-    scale_filter nearest
     adaptive_sync off
     dpms on
 }
 output "HDMI-A-1" {
     mode  3840x2160@60.0Hz
-    pos 2560 0
+    pos 0 0
     transform normal
-    scale 1.0
+    scale 1.50
     scale_filter nearest
     adaptive_sync off
     dpms on
