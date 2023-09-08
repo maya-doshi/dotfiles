@@ -1,9 +1,11 @@
-# Setting the theme to a custom theme in the themes folder
-theme = "mellow"
+theme = "gruvbox"
 
 [editor]
 line-number = "relative"
 mouse = true
+
+[editor.soft-wrap]
+enable = true
 
 [editor.cursor-shape]
 insert = "bar"
