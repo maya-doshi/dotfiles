@@ -22,9 +22,6 @@ alias ls="lsd"
 alias lsa="lsd -a"
 alias tree="lsd --tree"
 
-# Helix Text editor (arch package doesnt name binary hx :[)
-alias hx="helix"
-
 # Neovim
 alias vim="nvim"
 
