@@ -3,8 +3,9 @@
 ## Basic customization, mostly complete for now.
 ## VERY MESSY
 ### TODO:
-- [ ] Consolidate env vars
-- [ ] Move random processes from sway config to systemd services
+- [ ] Switch to NixOS
+    - [ ] Consolidate env vars
+    - [ ] Move random processes from sway config to systemd services
 - [ ] Configure tmux
 - [ ] Fix neovim config (config nvchad, switch back to astronvim, or new config)
 - [x] Mako gruvbox
