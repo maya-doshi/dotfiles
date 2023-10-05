@@ -1,3 +1,7 @@
-set statusbar-home-tilde true
-set window-title-basename true
 include ./zathura-gruvbox-dark
+
+set window-title-basename true
+set selection-clipboard clipboard
+
+map m mark_add
+map ` mark_evaluate
