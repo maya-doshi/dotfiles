@@ -1,9 +1,8 @@
 exec export XDG_CURRENT_DESKTOP=sway
 exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
 exec export XDG_DATA_DIRS=/home/maya/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share/:/usr/share/:/var/lib/flatpak/exports/share/applications/:/home/maya/.cargo/bin/
-exec /usr/libexec/polkit-gnome-authentication-agent-1
 
-#exec foot server
+exec /usr/libexec/polkit-gnome-authentication-agent-1
 exec foot --server
 exec mako
 
@@ -19,6 +18,7 @@ set $right l
 # Your preferred terminal emulator
 set $term footclient
 set $web firefox
+
 set $screenshot_select grimshot --notify copy area
 set $screenshot_select_save grimshot --notify save area
 
@@ -56,10 +56,10 @@ set $emoji rofimoji --selector 'fuzzel' --clipboarder 'wl-copy'
 
 ### Input configuration
 input type:touchpad {
-    dwt enabled
+  dwt enabled
 	tap enabled
 	natural_scroll enabled
-    middle_emulation enabled
+  middle_emulation enabled
 }
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
@@ -146,6 +146,18 @@ input type:touchpad {
     bindsym $mod+Shift+0 move container to workspace number 10
     # Note: workspaces can have any name you want, not just numbers.
     # We just use 1-10 as the default.
+
+    # move workspace to output
+    bindsym $mod+Control+Shift+$left  move workspace to output left
+    bindsym $mod+Control+Shift+$right move workspace to output right
+    bindsym $mod+Control+Shift+$up    move workspace to output up
+    bindsym $mod+Control+Shift+$down  move workspace to output down
+    # move workspace to output with arrow keys
+    bindsym $mod+Control+Shift+Left  move workspace to output left
+    bindsym $mod+Control+Shift+Right move workspace to output right
+    bindsym $mod+Control+Shift+Up    move workspace to output up
+    bindsym $mod+Control+Shift+Down  move workspace to output down
+
 #
 # Layout stuff:
 #
@@ -171,6 +183,7 @@ input type:touchpad {
 
     # Move focus to the parent container
     bindsym $mod+a focus parent
+
 #
 # Scratchpad:
 #
@@ -208,6 +221,7 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
+# Generic Floating
 for_window [window_role="pop-up"] floating enable
 for_window [window_role="Pop-up"] floating enable
 for_window [window_role="bubble"] floating enable
@@ -222,19 +236,24 @@ for_window [window_role="task_dialog"] floating enable
 for_window [window_type="menu"] floating enable
 for_window [window_role="About"] floating enable
 
-### # Firefox Specific Rules
-for_window [app_id="firefox" title="Firefox — Sharing Indicator"] floating enable
+# Specific Floating Rules
+for_window [app_id="firefox" title="Firefox — Sharing Indicator"] kill
 for_window [app_id="firefox" title="Picture-in-Picture"] floating enable
 for_window [app_id="firefox" title="Pushbullet – Mozilla Firefox"] floating enable
 for_window [app_id="firefox" title="About Mozilla Firefox"] floating enable
 for_window [title="Steam - News"] floating enable
 for_window [title="File Operation Progress"] floating enable
+for_window [title="Select Document"] floating enable
+
+for_window [app_id="thunderbird" title="New*"] floating enable
+
+for_window [app_id="org.gnome.Nautilus"] floating enable
 
 bar {
     swaybar_command waybar
     # hidden_state hide
-    # mode hide
-    # modifier $mod
+    mode dock
+    modifier $mod
 }
 # class                         border          background      text            indicator       child_border
 client.focused                  #D2ABDB         #000000         #D2ABDB         #D2ABDB         #D2ABDB
