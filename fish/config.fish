@@ -10,7 +10,8 @@ set -Ux AMD_VULKAN_ICD RADV
 set -Ux QT_QPA_PLATFORM wayland-egl
 set -Ux EDITOR nvim
 set -Ux RUSTC_WRAPPER /home/maya/.cargo/bin/sccache
-fish_add_path -m ~/.cargo/bin
+# fish_add_path -m ~/Documents/Apps/gcc-arm-none-eabi-10.3-2021.10/bin/
+# fish_add_path -m ~/.cargo/bin
 
 # Set up Zoxide [cd alternative]
 zoxide init fish | source
@@ -37,7 +38,8 @@ alias gip="git push"
 alias za="zathura --fork"
 
 # cat with syntax
-alias cat="bat"
+# alias realcat="cat"
+# alias cat="bat"
 
 # emacs terminal
 alias emacs="emacs -nw"
