@@ -6,7 +6,7 @@
   "ipc": true,
 
   "modules-left": ["sway/workspaces", "sway/scratchpad", "sway/mode"],
-  "modules-center": ["sway/window"],
+  "modules-center": ["mpris"],
   "modules-right": ["tray", "backlight", "pulseaudio", "battery", "clock"],
 
   "sway/scratchpad": {
@@ -35,7 +35,7 @@
     "format": "{volume}% {icon} {format_source}",
     "format-bluetooth": "{volume}% {icon} {format_source}",
     "format-bluetooth-muted": " {icon} {format_source}",
-    "format-muted": " {format_source}",
+    "format-muted": "  {format_source}",
     "format-source": "{volume}% ",
     "format-source-muted": "",
     "format-icons": {
@@ -62,5 +62,19 @@
     // "format-good": "", // An empty format will hide the module
     // "format-full": "",
     "format-icons": ["", "", "", "", ""]
-},
+  },
+  "mpris": {
+    "format": "{player_icon} {dynamic}",
+    "format-paused": "{status_icon} <i>{dynamic}</i>",
+    "player-icons": {
+      "default": "▶",
+      "spotify_player": "🎵",
+      "strawberry": "🎵"
+    },
+    "status-icons": {
+      "paused": "⏸"
+    },
+    "ignored-players": ["firefox"],
+    "on-click": "playerctl pause media",
+  }
 }
