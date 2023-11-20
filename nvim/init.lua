@@ -44,6 +44,8 @@ P.S. You can delete this when you're done too. It's your config now :)
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
+vim.wo.relativenumber = true
+
 -- [[ Install `lazy.nvim` plugin manager ]]
 --    https://github.com/folke/lazy.nvim
 --    `:help lazy.nvim.txt` for more info
@@ -230,6 +232,38 @@ require('lazy').setup({
   --
   --    For additional information see: https://github.com/folke/lazy.nvim#-structuring-your-plugins
   -- { import = 'custom.plugins' },
+
+  {
+    "nvim-neorg/neorg",
+    build = ":Neorg sync-parsers",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      'hrsh7th/nvim-cmp'
+    },
+    config = function()
+      require("neorg").setup {
+        load = {
+          ["core.defaults"] = {}, -- Loads default behaviour
+          ["core.concealer"] = {}, -- Adds pretty icons to your documents
+          ["core.completion"] = {
+            config = {
+              engine = "nvim-cmp",
+              name = "[Neorg]",
+            }
+          },
+          ["core.integrations.nvim-cmp"] = {},
+          ["core.export"] = {},
+          ["core.dirman"] = { -- Manages Neorg workspaces
+            config = {
+              workspaces = {
+                notes = "~/Documents/notes",
+              },
+            },
+          },
+        },
+      }
+    end,
+  },
 }, {})
 
 -- [[ Setting options ]]
@@ -599,6 +633,7 @@ cmp.setup {
   sources = {
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
+    { name = 'neorg' },
   },
 }
 
