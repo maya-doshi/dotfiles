@@ -235,6 +235,7 @@ for_window [class="Dialog"] floating enable
 for_window [window_role="task_dialog"] floating enable
 for_window [window_type="menu"] floating enable
 for_window [window_role="About"] floating enable
+for_window [app_id = "xdg-desktop-portal-*"] floating enable
 
 # Specific Floating Rules
 for_window [app_id="firefox" title="Firefox — Sharing Indicator"] kill
