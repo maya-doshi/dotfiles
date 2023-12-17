@@ -7,39 +7,39 @@ exec foot --server
 exec mako
 
 ### Variables
-#
-# Logo key. Use Mod1 for Alt.
-set $mod Mod4
-# Home row direction keys, like vim
-set $left h
-set $down j
-set $up k
-set $right l
-# Your preferred terminal emulator
-set $term footclient
-set $web firefox
+set {
+    $mod Mod4
+    $left h
+    $down j
+    $up k
+    $right l
 
-set $screenshot_select grimshot --notify copy area
-set $screenshot_select_save grimshot --notify save area
+    $term footclient
+    $web firefox
+
+    $screenshot_select grimshot --notify copy area
+    $screenshot_select_save grimshot --notify save area
+
+    $menu fuzzel
+    $emoji rofimoji --selector 'fuzzel' --clipboarder 'wl-copy'
+
+    $laptop SDC 0x4154 Unknown
+
+    # Color variables not actually used
+    $hilight #8EC07C
+}
 
 # Brightness Control
 bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
 bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
 
-# bindsym --locked XF86AudioMute exec pactl set-sink-mute alsa_output.pci-0000_04_00.6.analog-stereo toggle
-# bindsym --locked XF86AudioLowerVolume exec pactl set-sink-volume alsa_output.pci-0000_04_00.6.analog-stereo -5%
-# bindsym --locked XF86AudioRaiseVolume exec pactl set-sink-volume alsa_output.pci-0000_04_00.6.analog-stereo +5%
-
+# Volume Control
 bindsym --locked XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 bindsym --locked XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
 bindsym --locked XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
 
-set $laptop SDC 0x4154 Unknown
+# Lock Screen & Suspend
 bindswitch --reload --locked lid:on exec swaylock -c "#1e1e2e" --ring-color "#D2ABDB" | systemctl suspend
-# bindswitch --reload --locked lid:off output $laptop enable
-
-set $menu fuzzel
-set $emoji rofimoji --selector 'fuzzel' --clipboarder 'wl-copy'
 
 ### Idle configuration
 #
@@ -241,14 +241,15 @@ for_window [app_id = "xdg-desktop-portal-*"] floating enable
 for_window [app_id="firefox" title="Firefox — Sharing Indicator"] kill
 for_window [app_id="firefox" title="Picture-in-Picture"] floating enable
 for_window [app_id="firefox" title="Pushbullet – Mozilla Firefox"] floating enable
+# for_window [app_id="firefox" title="Extension: (Bitwarden - Free Password Manager)*"] floating enable
 for_window [app_id="firefox" title="About Mozilla Firefox"] floating enable
+for_window [app_id="thunderbird" title="New*"] floating enable
+for_window [app_id="org.gnome.Nautilus"] floating enable
+for_window [app_id="org.gnome.clocks"] floating enable
+for_window [app_id="org.gnome.Todo"] floating enable
 for_window [title="Steam - News"] floating enable
 for_window [title="File Operation Progress"] floating enable
 for_window [title="Select Document"] floating enable
-
-for_window [app_id="thunderbird" title="New*"] floating enable
-
-for_window [app_id="org.gnome.Nautilus"] floating enable
 
 bar {
     swaybar_command waybar
@@ -257,18 +258,19 @@ bar {
     modifier $mod
 }
 # class                         border          background      text            indicator       child_border
-client.focused                  #D2ABDB         #000000         #D2ABDB         #D2ABDB         #D2ABDB
-client.focused_inactive         #333333         #000000         #D2ABDB         #404040         #000000
-client.unfocused                #333333         #000000         #888888         #404040         #000000
-client.urgent                   #2f343a         #900000         #ffffff         #404040         #D2ABDB
-client.placeholder              #000000         #000000         #ffffff         #404040         #D2ABDB
+client.focused                  #8EC07C         #1D2021         #8EC07C         #8EC07C         #8EC07C
+client.focused_inactive         #333333         #1D2021         #8EC07C         #404040         #000000
+client.unfocused                #333333         #1D2021         #888888         #404040         #000000
+client.urgent                   #2f343a         #900000         #ffffff         #404040         #8EC07C
+client.placeholder              #1D2021         #000000         #ffffff         #404040         #8EC07C
 
 smart_borders on
 # output * bg "#D2ABDB" solid_color
 output * bg "#1e1e2e" solid_color
+# output * bg "traf_law.jpg" fill
 default_border pixel 3
-# gaps outer 4 
-# gaps inner 4 
+# gaps outer 4
+# gaps inner 4
 include ./outputs
 include ./inputs
 include /etc/sway/config.d/*
