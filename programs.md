@@ -1,0 +1,36 @@
+# Programs/Utilities
+- sway
+    - One keycombo per type of use workspace
+    - Key chords
+    - Low battery reminder
+    - mako -> SwayNotificationCenter
+- waybar
+- fuzzel
+- foot
+- neovim
+    - improve config
+- fish
+    - fish -> zsh
+- tmux
+    - mouse config
+- lazygit
+- btop
+- sioyek
+- zathura
+- nautilus
+- gnome-todo
+    - broken fedora rpm
+- gnome-calendar
+- geary
+- protonmail-bridge
+    - Move to server
+- firefox
+- gammastep
+- pactl
+- nwg-displays
+- rofimoji
+- grimshot
+
+## Fallback:
+- thunderbird
+- alacritty
