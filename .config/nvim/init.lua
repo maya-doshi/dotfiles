@@ -78,6 +78,12 @@ require('lazy').setup({
   -- Detect tabstop and shiftwidth automatically
   'tpope/vim-sleuth',
 
+--  {
+--    "ellisonleao/glow.nvim",
+--      config = true,
+--      cmd = "Glow"
+--  },
+
   -- NOTE: This is where your plugins related to LSP can be installed.
   --  The configuration is done below. Search for lspconfig to find it below.
   {
@@ -232,6 +238,14 @@ require('lazy').setup({
   --
   --    For additional information see: https://github.com/folke/lazy.nvim#-structuring-your-plugins
   -- { import = 'custom.plugins' },
+  {
+    "ranjithshegde/ccls.nvim",
+    config = function()
+      require("ccls").setup{
+        {filetypes = {"c", "cpp", "opencl"}}
+      }
+    end
+  },
 
   {
     "nvim-neorg/neorg",
@@ -346,6 +360,10 @@ require('telescope').setup {
     },
   },
 }
+
+--require('glow').setup {
+--  install_path="~/.cargo/bin",
+--}
 
 -- Enable telescope fzf native, if installed
 pcall(require('telescope').load_extension, 'fzf')
