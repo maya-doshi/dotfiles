@@ -1,4 +1,2 @@
 # dotfiles
-
-## Basic customization, mostly complete for now.
-## VERY MESSY
+personal configs working on a more elaboarate nixos setup
